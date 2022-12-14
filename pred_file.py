@@ -39,4 +39,4 @@ X_test = df_test[['staff_available','Severity of Illness','Available Extra Rooms
 pred = DecisionTree_model.predict(X_test)
 df_test['pred'] = pred
 df_test = df_test['pred']
-df_test.to_csv('Prediccion.csv', index=False)
+df_test.to_csv('Nefuulus.csv', index=False)
