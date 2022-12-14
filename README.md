@@ -66,23 +66,23 @@ siendo $TP$ los verdaderos positivos, $TN$ verdaderos negativos y $P+N$ poblaci�
 
 ## Explicación del modelo:
 
-Si bien este apartado se encuentra detallado paso a paso en el archivo `EDA_FeatureEng.ipynb`, a modo de resumen comento cómo encaré este problema. Luego de realizar un pequeño análisis de mis datos y algunas conversiones, como por ejemplo, utilizar LabelEncoder para convertir mis variables categóricas, decidí probar dos tipos de modelos de clasificación: Regresión Logística y Árbol de decisión. Hice un test utilizando un Árbol porque es el modelo con el que más familiarizado me encuentro, sin embargo, comparé ambos para verificar cuál de estos tenía una mejor accuracy. Además, a la hora de hacer el árbol utilicé la validación cruzada para sacar la profundidad óptima de mi árbol. Luego de hacer la selección de Features utilizando Chi², determiné las features óptimas para entrenar mi modelo, ajusté mis hiperparámetros y obtuve resultados positivos.
+Luego de realizar un pequeño análisis de los datos y modificar algunas variables en mi dataset hice un test utilizando un Árbol porque es el modelo que mas intuia que podia solvertar la problematica presente en este proyecto, de todas maneras comparé tanto el arbol de decision como la regresion logistica para verificar cuál de estos tenía una mejor accuracy. Utilicé la validación cruzada para sacar la profundidad óptima del árbol de decisiony determiné las features óptimas para entrenar mi modelo usando Chicuadrado.
 
-## Aclaraciones:
+## Disclaimer:
 
-Hay algunas cosas a tener en cuenta, el análisis y modelo propuestos NO son necesariamente los más óptimos/mejores, varias decisiones fueron tomadas a mi propio criterio, por ejemplo, la profundidad del árbol, el uso del estadístico Chi² (como se comenta en el Notebook) para la selección de features en lugar de la correlación de Pearson, descarte de columnas que personalmente creía innecesarias (Como 'patientid' y 'Visitors with Patient'), etc...
+El modelo utilizado no necesariamente es el mejor o más optimo, ocupe mi propio criterio para la utilizacion de herramientas que aqui se presentan logrando de todas maneras un buen resultado.
+
 
 ## Explicación de los contenidos del Repositorio:
 
-+ En la carpeta `datasets` se encuentran los datasets analizados, el archivo `hospitalizaciones_train.csv` que es el que utilizamos para instanciar y entrenar el modelo y el archivo `hospitalizaciones_test.csv` que es al que se le aplica el modelo ya terminado para sacar deducciones.
++ En la carpeta `datasets`  el archivo `hospitalizaciones_train.csv` que es el que utilizamos para  entrenar el modelo y el archivo `hospitalizaciones_test.csv` que es al que se le aplica el modelo para ver como ha funcionado.
 
-+ En el notebook `EDA_FeatureEng.ipynb` se encuentra el código comentado paso por paso, explicando las decisiones tomadas a la hora de encarar este proyecto;
-    Esto se hizo así para tener dividido de manera ordenada los bloques de código, separados por los markdowns que van dividiendo las etapas del proceso.
-    Con esto espero documentar y demostrar cada paso del desarrollo.
++ En el notebook `pred_fileEDA.ipynb` se encuentra el código comentado, explicando las decisiones tomadas a la hora de la toma de decisiones;
+ 
 
-+ En el archivo `DecisionTree_model.pkl` se encuentra el modelo de árbol de decisión creado, importado con la librería de Joblib.
++ En el archivo `Modelo.pkl` se encuentra el modelo de árbol de decisión creado.
 
-+ En el archivo `pred_generator.py` se encuentra el código que se encarga de realizar las transformaciones necesarias sobre el dataset `hospitalizaciones_test.csv` además de aplicarle el modelo, sacar las conclusiones y generar el archivo `Emmafer.csv` donde se encuentra mi columna de predicciones.
++ En el archivo `pred_file.py` se encuentra el código que se encarga de realizar las transformaciones necesarias sobre el dataset `hospitalizaciones_test.csv` y obtener el archivo `Prediccion.csv`.
 
 ## Herramientas/librerías utilizadas:
 
